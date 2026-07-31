@@ -1,66 +1,29 @@
-## Foundry
+# Day 1 — EmployeePayroll
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A Solidity smart contract that manages employee payroll on-chain.
+Built as part of a simulated workplace challenge to practice real-world contract development.
 
-Foundry consists of:
+## What it does
+- Owner registers employees with a wallet address and monthly salary in ETH
+- Owner removes employees
+- Owner triggers `runPayroll()` which pays all employees or reverts if funds are insufficient
+- No partial payouts — the contract checks total payroll cost before sending a single payment
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Tests
+20 tests | 100% line coverage | 100% statement coverage
 
-## Documentation
+## How to run
 
-https://book.getfoundry.sh/
+Clone the repo then:
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```bash
+forge install
+forge test
+forge coverage
 ```
 
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+## Key concepts practiced
+- Checks-Effects-Interactions pattern
+- Mapping cleanup on delete
+- Correct delete ordering to avoid stale state
+- Skipping zero address slots in loops
