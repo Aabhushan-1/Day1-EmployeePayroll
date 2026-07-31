@@ -111,7 +111,6 @@ contract EmployeePayrollTest is Test {
     }
 
     function test_runPayroll_Successfully_Pays() public {
-
         uint256 initialBalanceOfContract = address(employeePayroll).balance;
         uint256 initialBalanceOfAbu = abu.balance;
 
@@ -136,7 +135,7 @@ contract EmployeePayrollTest is Test {
 
     function test_runPayroll_Doesnt_Revert_For_Zero_Address() public {
         address user = makeAddr("user");
-        employeePayroll.addEmployee(user , salary);
+        employeePayroll.addEmployee(user, salary);
         addEmp();
         employeePayroll.removeEmployee(abu);
 
